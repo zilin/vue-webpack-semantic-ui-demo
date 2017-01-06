@@ -1,4 +1,5 @@
 var path = require('path')
+var webpack = require('webpack')
 var config = require('../config')
 var utils = require('./utils')
 var projectRoot = path.resolve(__dirname, '../')
@@ -31,6 +32,9 @@ module.exports = {
   resolveLoader: {
     fallback: [path.join(__dirname, '../node_modules')]
   },
+  plugins: [
+    new webpack.ProvidePlugin({$: "jquery", jQuery: "jquery", "window.jQuery": "jquery"}),
+  ],
   module: {
     preLoaders: [
       {
